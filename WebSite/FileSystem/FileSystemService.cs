@@ -16,7 +16,7 @@ namespace FileSystem
         public IEnumerable<string> GetAllDrives()
         {
             DriveInfo[] drives = DriveInfo.GetDrives();
-
+            
             var names = drives.Select(n => n.Name);
 
             return names;
