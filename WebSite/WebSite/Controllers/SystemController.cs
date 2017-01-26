@@ -19,11 +19,13 @@ namespace WebSite.Controllers
         }
 
         // GET api/system/GetDrives
+        [HttpGet]
         public IEnumerable<string> GetDrives()
         {
             return _service.GetAllDrives();
         }
 
+        [HttpGet]
         // GET api/system/GetFolders/path
         public IEnumerable<string> GetFolders(string path)
         {
@@ -31,6 +33,7 @@ namespace WebSite.Controllers
         }
 
         // GET api/system/GetFiles/path
+        [HttpGet]
         public IEnumerable<string> GetFiles(string path)
         {
             return _service.GetFiles(path);
@@ -39,24 +42,30 @@ namespace WebSite.Controllers
         #region without implementation
 
         // POST api/system
-        public void CreateFolder([FromBody]PathInfo value)
+        [HttpPost]
+        public void CreateFolder([FromBody]string value)
         {
+
         }
 
-        public void CreateFile([FromBody]PathInfo value)
+         [HttpPost]
+        public void CreateFile([FromBody]string value)
         {
+
         }
       
         // DELETE api/system/5
-        public void DeleteFolder(int id)
+        [HttpDelete]
+        public void DeleteFolder(string path)
         {
 
         }
 
-        public void DeleteFile()
-        {
+        //[HttpDelete]
+        //public void DeleteFile()
+        //{
 
-        }
+        //}
         #endregion
     }
 }

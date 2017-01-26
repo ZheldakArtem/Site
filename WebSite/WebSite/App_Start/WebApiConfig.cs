@@ -15,14 +15,14 @@ namespace WebSite
         {
             config.Routes.MapHttpRoute(
                name: "Drives",
-               routeTemplate: "api/{controller}/{action}/{id}",
-               defaults: new { id = RouteParameter.Optional }
+               routeTemplate: "api/{controller}/{action}/{path}",
+               defaults: new { path = RouteParameter.Optional }
            );
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
+                routeTemplate: "api/{controller}/{path}",
+                defaults: new { path = RouteParameter.Optional }
             );
 
             IUnityContainer container = UnityConfig.BuildUnityContainer();

@@ -3,6 +3,7 @@ using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Threading;
 using System.Web.Mvc;
+using System.Web.Security;
 using WebMatrix.WebData;
 using WebSite.Models;
 
@@ -39,6 +40,17 @@ namespace WebSite.Filters
                     }
 
                     WebSecurity.InitializeDatabaseConnection("DefaultConnection", "UserProfile", "UserId", "UserName", autoCreateTables: true);
+                    var roles = Roles.GetAllRoles();
+                    try
+                    {
+                        Roles.CreateRole("admin");
+                        Roles.CreateRole("superUser");
+                    }
+                    catch
+                    {
+                       
+                    }
+                  
                 }
                 catch (Exception ex)
                 {

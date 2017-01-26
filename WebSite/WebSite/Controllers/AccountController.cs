@@ -74,6 +74,7 @@ namespace WebSite.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Register(RegisterModel model)
         {
+            SimpleRoleProvider role = new SimpleRoleProvider();
             if (ModelState.IsValid)
             {
                 // Attempt to register the user
@@ -81,6 +82,7 @@ namespace WebSite.Controllers
                 {
                     WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
                     WebSecurity.Login(model.UserName, model.Password);
+                    Roles.AddUserToRole(model.UserName, "superUser");
                     return RedirectToAction("Index", "Home");
                 }
                 catch (MembershipCreateUserException e)
@@ -327,6 +329,34 @@ namespace WebSite.Controllers
             ViewBag.ShowRemoveButton = externalLogins.Count > 1 || OAuthWebSecurity.HasLocalAccount(WebSecurity.GetUserId(User.Identity.Name));
             return PartialView("_RemoveExternalLoginsPartial", externalLogins);
         }
+
+        #region TODO
+        public ActionResult CreateRole()
+        {
+            try
+            {
+                Roles.CreateRole("superUser");
+            }
+            catch (Exception)
+            {
+                ModelState.AddModelError("Role","The role already exist");
+            }
+            
+            //TODO
+            return null;
+        }
+
+        public ActionResult AddUserToRole()
+        {
+            return null;
+        }
+
+        public ActionResult RemoveUserFromRole()
+        {
+            return null;
+        }
+
+        #endregion
 
         #region Helpers
         private ActionResult RedirectToLocal(string returnUrl)

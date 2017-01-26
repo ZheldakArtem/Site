@@ -27,6 +27,8 @@ namespace WebSite.Models
         public string UserName { get; set; }
     }
 
+
+
     public class RegisterExternalLoginModel
     {
         [Required]
