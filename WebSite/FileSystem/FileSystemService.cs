@@ -77,7 +77,8 @@ namespace FileSystem
             try
             {
                 FileInfo newFile = new FileInfo(string.Format("{0}\\{1}", path, name));
-                newFile.Create();
+
+                newFile.Create().Dispose();
             }
             catch (Exception ex)
             {

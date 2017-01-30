@@ -13,20 +13,17 @@
     <header>
         <div class="content-wrapper">
             <div class="float-right">
-                <section id="login">
-                    @Html.Partial("_LoginPartial")
-                </section>
-                @*<nav>
-                        <ul id="menu">
-                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        </ul>
-                    </nav>*@
+                <nav>
+                    <ul id="menu">
+                        @Html.Partial("_LoginPartial")
+                    </ul>
+                </nav>
             </div>
         </div>
     </header>
 
-   
-        @RenderBody()
+
+    @RenderBody()
 
 
     @Scripts.Render("~/bundles/jquery")

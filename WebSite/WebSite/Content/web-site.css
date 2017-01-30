@@ -2,6 +2,7 @@
     float: left;
     width: 10%;
     border-right: 2px solid black;
+        min-height: 880px;
 }
 
 .drive-name {

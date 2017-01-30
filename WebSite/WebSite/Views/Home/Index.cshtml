@@ -4,7 +4,7 @@
 
 <div ng-controller="drive-controller">
     <div id="left-sidebar">
-        <div class="drive" ng-repeat="drive in Drives track by $index">
+        <div class="drive" ng-repeat="drive in drives track by $index">
             <p class="drive-place" ng-click="getSubItems(drive)">
                 <img src="../Images/hard-drive.png" alt={{drive}} />
                 <span class="drive-name">{{drive}}</span>
@@ -12,25 +12,43 @@
         </div>
     </div>
     <div class="main-content">
-        <table>
-            <thead>
+        @if (User.IsInRole("admin"))
+        {
+            <form name="createForm">
+                <label>
+                    <input type="radio" ng-model="createType" value="file">
+                    File
+                </label>
+                <label>
+                    <input type="radio" ng-model="createType" value="folder">
+                    Folder
+                </label>
+                <input type="text" ng-model="name" />
+                <button ng-click="createItem(name)">NEW</button>
+            </form>
+            <hr />
+        }
 
-            </thead>
+        <table>
             <tbody>
-                <tr ng-repeat="folder in Folders track by $index" ng-click="getSubItems(folder)">
-                    <td><img src="../Images/computer-folder.png" alt={{folder}} /></td>
-                    <td>{{folder}}</td>
-                    <td class="delete-btn" ng-click="deleteFolder(folder)">|DELETE|</td>
+                <tr ng-repeat="folder in Folders track by $index">
+                    <td ng-click="getSubItems(folder)"><img src="../Images/computer-folder.png" alt={{folder}} /></td>
+                    <td ng-click="getSubItems(folder)">{{folder}}</td>
+                    @if (User.IsInRole("admin"))
+                    {
+                        <td class="delete-btn" ng-click="deleteFolder(folder, $index)">|DELETE|</td>
+                    }
                 </tr>
                 <tr ng-repeat="file in Files track by $index">
                     <td><img src="../Images/text-file.png" alt={{file}} /></td>
                     <td>{{file}}</td>
-                    <td class="delete-btn" ng-click="deleteFile(file)">|DELETE|</td>
+                    @if (User.IsInRole("admin"))
+                    {
+                        <td class="delete-btn" ng-click="deleteFile(file, $index)">|DELETE|</td>
+                    }
                 </tr>
             </tbody>
         </table>
     </div>
     <footer></footer>
 </div>
-
-

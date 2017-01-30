@@ -15,6 +15,12 @@ service('system-service', ['$http', function ($http) {
         },
         deleteFile: function (path) {
             return $http.delete('api/system/DeleteFile?path=' + path);
+        },
+        createFolder: function (path, name) {
+            return $http.post('api/system/CreateFolder?path=' + path + '&name=' + name);
+        },
+        createFile: function (path, name) {
+            return $http.post('api/system/CreateFile?path=' + path + '&name=' + name);
         }
     }
 }]);
