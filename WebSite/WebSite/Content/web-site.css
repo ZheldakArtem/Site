@@ -36,3 +36,7 @@ tr:hover {
     background-color: lightgrey;
     cursor: pointer;
 }
+
+.delete-btn:hover{
+    color:white;
+}

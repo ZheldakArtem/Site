@@ -8,7 +8,13 @@ service('system-service', ['$http', function ($http) {
             return $http.get('api/system/GetFolders?path=' + path);
         },
         getFiles: function (path) {
-            return $http.get('api/system/GetFiles?path=' + path)
+            return $http.get('api/system/GetFiles?path=' + path);
+        },
+        deleteFolder: function (path) {
+            return $http.delete('api/system/DeleteFolder?path=' + path);
+        },
+        deleteFile: function (path) {
+            return $http.delete('api/system/DeleteFile?path=' + path);
         }
     }
 }]);

@@ -20,10 +20,12 @@
                 <tr ng-repeat="folder in Folders track by $index" ng-click="getSubItems(folder)">
                     <td><img src="../Images/computer-folder.png" alt={{folder}} /></td>
                     <td>{{folder}}</td>
+                    <td class="delete-btn" ng-click="deleteFolder(folder)">|DELETE|</td>
                 </tr>
                 <tr ng-repeat="file in Files track by $index">
                     <td><img src="../Images/text-file.png" alt={{file}} /></td>
                     <td>{{file}}</td>
+                    <td class="delete-btn" ng-click="deleteFile(file)">|DELETE|</td>
                 </tr>
             </tbody>
         </table>

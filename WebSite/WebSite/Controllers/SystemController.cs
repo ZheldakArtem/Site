@@ -17,7 +17,7 @@ namespace WebSite.Controllers
         {
             _service = service;
         }
-        
+
         [HttpGet]
         public IEnumerable<string> GetDrives()
         {
@@ -36,33 +36,68 @@ namespace WebSite.Controllers
             return _service.GetFiles(path);
         }
 
-        #region without implementation
-
-        // POST api/system
         [HttpPost]
-        public void CreateFolder([FromBody]string value)
+        public HttpResponseMessage CreateFolder(string path, string name)
         {
-
+            if (!_service.CreateFolder(path,name))
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest);
+            }
+            return Request.CreateResponse(HttpStatusCode.OK);
         }
 
         [HttpPost]
-        public void CreateFile([FromBody]string value)
+        public HttpResponseMessage CreateFile(string path, string name)
         {
+            try
+            {
+                if (!_service.CreateFile(path, name))
+                {
+                    return Request.CreateResponse(HttpStatusCode.BadRequest);
+                }
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, ex.Message);
+            }
 
+            return Request.CreateResponse(HttpStatusCode.OK);
         }
 
-        // DELETE api/system/5
         [HttpDelete]
-        public void DeleteFolder(string path)
+        public HttpResponseMessage DeleteFolder(string path)
         {
+            try
+            {
+                if (!_service.DeleteFolder(path))
+                {
+                    return Request.CreateResponse(HttpStatusCode.BadRequest);
+                }
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, ex.Message);
+            }
 
+            return Request.CreateResponse(HttpStatusCode.OK);
         }
 
-        //[HttpDelete]
-        //public void DeleteFile()
-        //{
+        [HttpDelete]
+        public HttpResponseMessage DeleteFile(string path)
+        {
+            try
+            {
+                if (!_service.DeleteFile(path))
+                {
+                    return Request.CreateResponse(HttpStatusCode.BadRequest);
+                }
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, ex.Message);
+            }
+            return Request.CreateResponse(HttpStatusCode.OK);
+        }
 
-        //}
-        #endregion
     }
 }
