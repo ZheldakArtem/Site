@@ -12,7 +12,7 @@ namespace WebSite.Controllers
     {      
         public ActionResult Index()
         {
-            //ViewBag.IsAdmin = User.IsInRole("admin");
+            ViewBag.Message = "Test Message";
             return View();
         }
 
