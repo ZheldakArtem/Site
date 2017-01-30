@@ -17,8 +17,7 @@ namespace WebSite.Controllers
         {
             _service = service;
         }
-
-        // GET api/system/GetDrives
+        
         [HttpGet]
         public IEnumerable<string> GetDrives()
         {
@@ -26,13 +25,11 @@ namespace WebSite.Controllers
         }
 
         [HttpGet]
-        // GET api/system/GetFolders/path
         public IEnumerable<string> GetFolders(string path)
         {
             return _service.GetSubFolders(path);
         }
 
-        // GET api/system/GetFiles/path
         [HttpGet]
         public IEnumerable<string> GetFiles(string path)
         {
@@ -48,12 +45,12 @@ namespace WebSite.Controllers
 
         }
 
-         [HttpPost]
+        [HttpPost]
         public void CreateFile([FromBody]string value)
         {
 
         }
-      
+
         // DELETE api/system/5
         [HttpDelete]
         public void DeleteFolder(string path)

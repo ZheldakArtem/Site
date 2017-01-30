@@ -109,9 +109,9 @@ h5, h6 {
         padding-top: 30px;
     }*/
 
-    .featured + .main-content {
+    /*.featured + .main-content {
         background: url("../Images/heroAccent.png") no-repeat;
-    }
+    }*/
 
 header .content-wrapper {
     padding-top: 20px; 
@@ -654,10 +654,10 @@ tr.pager td {
 
     /* main layout
     ----------------------------------------------------------*/
-    .main-content,
+    /*.main-content,
     .featured + .main-content {
         background-position: 10px 0;
-    }
+    }*/
 
     .content-wrapper {
         padding-right: 10px;

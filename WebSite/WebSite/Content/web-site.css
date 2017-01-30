@@ -1,18 +1,38 @@
 ﻿#left-sidebar {
     float: left;
-    width: 200px;
+    width: 10%;
     border-right: 2px solid black;
 }
 
 .drive-name {
-    font-size:40px;
+    font-size: 40px;
 }
 
-.drive-place{
-    cursor:pointer;
-    width:65%;
+.drive-place {
+    cursor: pointer;
+    width: 65%;
 }
 
-.drive-place:hover{
-   background-color:lightgrey;
+    .drive-place:hover {
+        background-color: lightgrey;
+    }
+
+.main-content {
+    padding: 40px;
+    background-color: grey;
+    min-height: 800px;
+    float: right;
+    width: 85%;
+}
+
+footer {
+    clear: both;
+    content: "";
+    width: 100%;
+    min-height: 100px;
+}
+
+tr:hover {
+    background-color: lightgrey;
+    cursor: pointer;
 }

@@ -2,13 +2,33 @@
     ViewBag.Title = "Home Page";
 }
 
-<div ng-controller="drive-controller" id="left-sidebar">
-    <div class="drive" ng-repeat="drive in Drives track by $index">
-        <p class="drive-place" ng-click="getSubItems()">
-            <img src="../Images/hard-drive.png" alt={{drive}}/>
-            <span class="drive-name">{{drive}}</span>
-        </p>
+<div ng-controller="drive-controller">
+    <div id="left-sidebar">
+        <div class="drive" ng-repeat="drive in Drives track by $index">
+            <p class="drive-place" ng-click="getSubItems(drive)">
+                <img src="../Images/hard-drive.png" alt={{drive}} />
+                <span class="drive-name">{{drive}}</span>
+            </p>
+        </div>
     </div>
+    <div class="main-content">
+        <table>
+            <thead>
+
+            </thead>
+            <tbody>
+                <tr ng-repeat="folder in Folders track by $index" ng-click="getSubItems(folder)">
+                    <td><img src="../Images/computer-folder.png" alt={{folder}} /></td>
+                    <td>{{folder}}</td>
+                </tr>
+                <tr ng-repeat="file in Files track by $index">
+                    <td><img src="../Images/text-file.png" alt={{file}} /></td>
+                    <td>{{file}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <footer></footer>
 </div>
 
 
