@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using System.Web.Security;
 using WebMatrix.WebData;
 using WebSite.Models;
-
+using System.Linq;
 namespace WebSite.Filters
 {
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = false, Inherited = true)]
@@ -40,6 +40,7 @@ namespace WebSite.Filters
                     }
 
                     WebSecurity.InitializeDatabaseConnection("DefaultConnection", "UserProfile", "UserId", "UserName", autoCreateTables: true);
+
                     var roles = Roles.GetAllRoles();
                     try
                     {
@@ -48,9 +49,9 @@ namespace WebSite.Filters
                     }
                     catch
                     {
-                       
+
                     }
-                  
+
                 }
                 catch (Exception ex)
                 {

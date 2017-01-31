@@ -3,7 +3,7 @@
     <text>
         @if (User.IsInRole("admin"))
         {
-            @Html.ActionLink("Admin's Page", "Admin", routeValues: null)
+            @Html.ActionLink("Admin's Page", "AdminIndex", "Home", null, null)
         }
 
         @Html.ActionLink(User.Identity.Name, "Manage", "Account", routeValues: null, htmlAttributes: new { @class = "username", title = "Manage" })

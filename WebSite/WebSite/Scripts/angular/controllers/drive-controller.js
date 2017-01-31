@@ -1,5 +1,5 @@
 ﻿(function () {
-    angular.module('main', ['systemService'])
+    angular.module('main', ['systemServiceModule'])
     .controller('drive-controller', [
         '$scope', 'system-service',
     function ($scope, service) {
@@ -82,6 +82,7 @@
                 });
             });
         }
+
         init();
     }]);
 }());

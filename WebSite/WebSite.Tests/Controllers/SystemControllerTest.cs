@@ -7,6 +7,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using WebSite;
 using WebSite.Controllers;
 using Moq;
+using FileSystem.Interfaces;
 
 namespace WebSite.Tests.Controllers
 {
@@ -16,7 +17,8 @@ namespace WebSite.Tests.Controllers
         [TestMethod]
         public void GetDrives_ReturnAllDrives()
         {
-
+            Mock<IFileSystemService> mock = new Mock<IFileSystemService>();
+            //TODO
         }
 
     }

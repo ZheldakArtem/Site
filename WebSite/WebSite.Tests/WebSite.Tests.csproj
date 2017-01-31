@@ -131,6 +131,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FileSystem\FileSystem.csproj">
+      <Project>{3eed33c3-8804-4e64-8bd3-6161b7a89551}</Project>
+      <Name>FileSystem</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WebSite\WebSite.csproj">
       <Project>{63DCC074-9596-4BB1-A657-459E2C19019D}</Project>
       <Name>WebSite</Name>

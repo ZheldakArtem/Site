@@ -6,7 +6,6 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
-
 namespace WebSite.Controllers
 {
     public class SystemController : ApiController
