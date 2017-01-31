@@ -25,17 +25,31 @@ namespace WebSite.Controllers
             return Roles.GetAllRoles();
         }
 
-        public void CreateRole()
+        public HttpResponseMessage EditRoleForUser(string userName, string roleName)
         {
+            try
+            {
+                Roles.AddUserToRole(userName, roleName);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, ex.Message);
+            }
+
+            return Request.CreateResponse(HttpStatusCode.OK);
         }
 
-        public void EditRoleForUser()
+        #region TODO
+        public HttpResponseMessage DeleteRole()
         {
+            return null;
         }
 
-        public void DeleteRole()
+        public HttpResponseMessage CreateRole(string name)
         {
+            return null;
         }
+        #endregion
 
         private IEnumerable<object> GetUsersWhithRole()
         {

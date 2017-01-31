@@ -24,7 +24,7 @@
          }
 
          var createRole = function (newRole) {
-             service.AddRole().then(function () {
+             service.addRole().then(function () {
                  alert('The role was created.')
              },
              function () {
@@ -33,14 +33,14 @@
          }
 
          function init() {
-             service.GetUsers().then(function (response) {
+             service.getUsers().then(function (response) {
                  $scope.users = [];
                  response.data.forEach(function (element, index, array) {
                      $scope.users.push(element);
                  });
              });
 
-             service.GetRoles().then(function (response) {
+             service.getRoles().then(function (response) {
                  $scope.roles = [];
                  response.data.forEach(function (element, index, array) {
                      $scope.roles.push(element);

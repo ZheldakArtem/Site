@@ -21,19 +21,21 @@ namespace WebSite
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
                 "~/Scripts/angular/angular.js",
                 "~/Scripts/angular/controllers/drive-controller.js",
-                "~/Scripts/angular/services/system-service.js"));
+                "~/Scripts/angular/services/system-service.js",
+                 "~/Scripts/config.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/admin").Include(
               "~/Scripts/angular/angular.js",
               "~/Scripts/angular/controllers/admin-controller.js",
-              "~/Scripts/angular/services/admin-service.js"));
+              "~/Scripts/angular/services/admin-service.js",
+              "~/Scripts/config.js"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css","~/Content/web-site.css"));
+            bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css", "~/Content/web-site.css"));
 
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
                         "~/Content/themes/base/jquery.ui.core.css",
