@@ -11,17 +11,20 @@ namespace FileSystem.Tests1
     [TestClass]
     public class UnitTest
     {
+        private readonly string path = @"D:\";
+
+        private readonly string fileName = "file.txt";
+
+        private readonly string folderName = "newFolder";
+
         [TestMethod]
         public void GetAllDrivesOnCurrentFileSystem()
         {
-            // arrange  
             IFileSystemService fss = new FileSystemService();
             var expectedDrivesNames = DriveInfo.GetDrives().Select(n => n.Name);
 
-            // act  
             var actualNames = fss.GetAllDrives();
 
-            // assert is handled by the ExpectedException  
             CollectionAssert.AreEqual(expectedDrivesNames.ToArray(), actualNames.ToArray());
 
         }
@@ -38,13 +41,12 @@ namespace FileSystem.Tests1
         [TestMethod]
         public void GetSubFolders_WhithValidPath()
         {
-            var path = @"D:\";
             string[] expectedNames = Directory.GetDirectories(path);
 
             IFileSystemService fss = new FileSystemService();
 
             var actual = fss.GetSubFolders(path);
-
+           
             CollectionAssert.AreEqual(expectedNames, actual.ToArray());
         }
 
@@ -60,7 +62,6 @@ namespace FileSystem.Tests1
         [TestMethod]
         public void GetFiles_WithValidPath()
         {
-            var path = @"D:\";
             var expected = Directory.GetFiles(path);
             IFileSystemService fss = new FileSystemService();
 
@@ -74,7 +75,7 @@ namespace FileSystem.Tests1
         {
             IFileSystemService fss = new FileSystemService();
 
-            var actual = fss.CreateFolder(null, "newFilder");
+            var actual = fss.CreateFolder(null, folderName);
 
             Assert.IsFalse(actual);
         }
@@ -84,7 +85,7 @@ namespace FileSystem.Tests1
         {
             var dict = new Dictionary<string, string>
             {
-                { @"D:\" , "newFolder" }
+                { path , folderName }
             };
             IFileSystemService fss = new FileSystemService();
 
@@ -105,10 +106,10 @@ namespace FileSystem.Tests1
         [TestMethod]
         public void DeleteFolder_WithValidArgments_FolderDeleted()
         {
-            string path = @"D:\newFolder";
+            string fullPath = path + folderName;
             IFileSystemService fss = new FileSystemService();
 
-            var actual = fss.DeleteFolder(path);
+            var actual = fss.DeleteFolder(fullPath);
 
             Assert.IsTrue(actual);
         }
@@ -118,7 +119,7 @@ namespace FileSystem.Tests1
         {
             IFileSystemService fss = new FileSystemService();
 
-            var actual = fss.CreateFile(null, "file.txt");
+            var actual = fss.CreateFile(null, fileName);
 
             Assert.IsFalse(actual);
         }
@@ -128,7 +129,7 @@ namespace FileSystem.Tests1
         {
             var dict = new Dictionary<string, string>
             {
-                { @"D:\" , "file.txt" }
+                { path , fileName }
             };
             IFileSystemService fss = new FileSystemService();
 
@@ -149,7 +150,7 @@ namespace FileSystem.Tests1
         [TestMethod]
         public void DeleteFile_WithValidArgments_FolderDeleted()
         {
-            string path = @"D:\file.txt";
+            string fullPath = path + fileName;
             IFileSystemService fss = new FileSystemService();
 
             var actual = fss.DeleteFile(path);

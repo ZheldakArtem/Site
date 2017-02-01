@@ -3,7 +3,7 @@
 
     if (User.IsInRole("admin"))
     {
-        <li>@Html.ActionLink("Admin's Page", "AdminIndex", "Home", null, null)</li>
+        <li>@Html.ActionLink("Admin's Page", "AdminIndex", "Home")</li>
     }
 
     <li>@Html.ActionLink(User.Identity.Name, "Manage", "Account", routeValues: null, htmlAttributes: new { @class = "username", title = "Manage" })</li>
@@ -17,7 +17,7 @@
 else
 {
     <ul>
-        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        <li>@Html.ActionLink("Register", "Register", "Account")</li>
+        <li>@Html.ActionLink("Log in", "Login", "Account")</li>
     </ul>
 }

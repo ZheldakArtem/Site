@@ -31,6 +31,7 @@ namespace FileSystem.Interfaces
         /// <returns>Files' name array</returns>
         IEnumerable<string> GetFiles(string path);
 
+        /// <exception cref="System.Exception></exception>
         /// <summary>
         ///  The method remove the file on current file system.
         /// </summary>

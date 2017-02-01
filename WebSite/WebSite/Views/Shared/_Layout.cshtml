@@ -12,6 +12,11 @@
     @RenderSection("angular", required: false)
     <header>
         <div class="content-wrapper">
+            <div class="float-left">
+                <ul id="menu">
+                    <li>@Html.ActionLink("HOME", "Index", "Home")</li>
+                </ul>
+            </div>
             <div class="float-right">
                 <nav>
                     <ul id="menu">

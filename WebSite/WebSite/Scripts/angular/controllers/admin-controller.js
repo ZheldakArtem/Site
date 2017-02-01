@@ -8,10 +8,6 @@
          $scope.newRole = false;
          $scope.editUser = {};
 
-         $scope.showNewRolePlace = function () {
-             $scope.newRole = true;
-         };
-
          $scope.showEditPlace = function (user) {
              $scope.editPlace = true;
              $scope.editUser.name = user.name;
@@ -27,6 +23,7 @@
              },
              function () {
                  alert('The role has not been changed.');
+                 $scope.editPlace = false;
              });
          }
 
