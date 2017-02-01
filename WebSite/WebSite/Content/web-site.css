@@ -1,8 +1,7 @@
 ﻿#left-sidebar {
     float: left;
     width: 10%;
-    border-right: 2px solid black;
-        min-height: 880px;
+    min-height: 880px;
 }
 
 .drive-name {
@@ -20,7 +19,7 @@
 
 .main-content {
     padding: 40px;
-    background-color: grey;
+    background-color: #cccccc;
     min-height: 800px;
     float: right;
     width: 85%;
@@ -38,7 +37,20 @@ tr:hover {
     cursor: pointer;
 }
 
-.delete-btn:hover{
-    color:white;
+.delete-btn:hover {
+    color: white;
 }
 
+.edit-btn:hover {
+    color: white;
+}
+
+select{
+    height: 36px;
+    width: 133px;
+    border-radius: 17px;
+}
+
+button{
+    border-radius: 10px;
+}

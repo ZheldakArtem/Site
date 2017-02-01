@@ -5,7 +5,7 @@
     @Scripts.Render("~/bundles/admin")
 }
 
-<h2>AdminIndex</h2>
+<h2>Admin's Page</h2>
 <div ng-app="adminApp" ng-controller="admin-controller">
     <div class="table-users">
         <table>
@@ -17,23 +17,30 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="user in users track by $index">
+                <tr ng-repeat="user in users">
                     <td>{{user.name}}</td>
                     <td>{{user.role}}</td>
-                    <td class="edit-btn">|EDIT|</td>
+                    <td ng-click=showEditPlace(user) class="edit-btn">|EDIT|</td>
                 </tr>
+                <tr><td><button ng-click="newRole=true">NewRole</button></td></tr>
             </tbody>
         </table>
-
+    </div>
+    <div class="newRole-place" ng-show="newRole">
+        <form name="selectForm">
+            <input type="text" placeholder="new role" ng-model="role" />
+            <button ng-click=createRole(role)>Create</button>
+        </form>
+    </div>
+    <div class="edit-place" ng-show=editPlace>
+        <h1>user: {{editUser.name}}</h1>
+        <form name="selectForm">
+            <select name="repeatSelect" id="repeatSelect" ng-model="role">
+                <option ng-repeat="role in roles track by $index" value="{{role}}">{{role}}</option>
+            </select>
+            <button ng-click="editRole(role)">Edit</button>
+        </form>
     </div>
 
-    @*<div class="edit-place">
-        <h1>{{editUser.name}}</h1>
-        <form name="selectForm">
-            <select name="singleSelect" ng-model="editUser.role" ng-repeat="role in roles">
-                <option value=role>{{role}}</option>
-            </select>
-        </form>
-    </div>*@
-
 </div>
+@*<button ng-click="editRole(role)">Edit</button>*@

@@ -25,6 +25,7 @@ namespace WebSite.Controllers
             return Roles.GetAllRoles();
         }
 
+        [HttpPut]
         public HttpResponseMessage EditRoleForUser(string userName, string roleName)
         {
             try
@@ -45,11 +46,20 @@ namespace WebSite.Controllers
             return null;
         }
 
+        #endregion
+        [HttpPost]
         public HttpResponseMessage CreateRole(string name)
         {
-            return null;
+            try
+            {
+                Roles.CreateRole(name);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, ex.Message);
+            }
+            return Request.CreateResponse(HttpStatusCode.OK);
         }
-        #endregion
 
         private IEnumerable<object> GetUsersWhithRole()
         {
@@ -59,7 +69,7 @@ namespace WebSite.Controllers
             {
                 foreach (var user in Roles.GetUsersInRole(role))
                 {
-                    users.Add(new { Name = user, Role = role });
+                    users.Add(new { name = user, role = role });
                 }
             }
             return users;

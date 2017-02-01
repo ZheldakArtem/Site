@@ -1,5 +1,5 @@
 ﻿html {
-    background-color: #e2e2e2;
+    background-color: #ffffff;
     margin: 0;
     padding: 0;
 }
@@ -31,7 +31,7 @@ a {
 
 header {
     display: block;
-    background-color: lightslategray
+    background-color: #b7c7d6
 }
 
 mark {
@@ -192,12 +192,12 @@ ul#menu {
 
         ul#menu li a {
             background: none;
-            color: #999;
+            color: #2f2d2d;
             text-decoration: none;
         }
 
             ul#menu li a:hover {
-                color: #333;
+                color: white;
                 text-decoration: none;
             }
 
