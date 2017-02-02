@@ -1,6 +1,6 @@
 ﻿(function () {
     angular.module('adminServiceModule',[])
-    .service('admin-service', ['$http', function ($http) {
+    .factory('admin-service', ['$http', function ($http) {
         return {
             getUsers: function () {
                 return $http.get(urlAdmin + 'GetUsers');

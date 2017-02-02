@@ -91,12 +91,13 @@ namespace WebSite.Tests.Controllers
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException))]
-        public void CreateFile_WithNullArg_Throw_ArgumentNullException()
+        public void CreateFile_WithNullArg_Throw_BadRequest()
         {
-            mock.Setup(m => m.CreateFile(null, null)).Throws<ArgumentNullException>();
+            mock.Setup(m => m.CreateFile(null, null)).Throws(new ArgumentNullException());
+            controller.Request = new HttpRequestMessage();
+            var actual = controller.CreateFile(null, null);
 
-            controller.CreateFile(null, null);
+            Assert.IsFalse(actual.IsSuccessStatusCode);
         }
 
         [TestMethod]
@@ -110,6 +111,50 @@ namespace WebSite.Tests.Controllers
             Assert.IsTrue(actual.IsSuccessStatusCode);
         }
 
+        [TestMethod]
+        public void DeleteFolder_WhithBadArg()
+        {
+            mock.Setup(m => m.DeleteFolder(It.IsAny<string>())).Returns(false);
+            controller.Request = new HttpRequestMessage();
 
+            var actual = controller.DeleteFolder(It.IsAny<string>());
+
+            Assert.IsFalse(actual.IsSuccessStatusCode);
+        }
+
+        [TestMethod]
+        public void DeleteFolder_WhitValidArg()
+        {
+            mock.Setup(m => m.DeleteFolder(It.IsAny<string>())).Returns(true);
+
+            controller.Request = new HttpRequestMessage();
+
+            var actual = controller.DeleteFolder(It.IsAny<string>());
+
+            Assert.IsTrue(actual.IsSuccessStatusCode);
+        }
+
+        [TestMethod]
+        public void DeleteFile_WhithBadArg()
+        {
+            mock.Setup(m => m.DeleteFile(It.IsAny<string>())).Returns(false);
+            controller.Request = new HttpRequestMessage();
+
+            var actual = controller.DeleteFile(It.IsAny<string>());
+
+            Assert.IsFalse(actual.IsSuccessStatusCode);
+        }
+
+        [TestMethod]
+        public void DeleteFile_WhithValidArg()
+        {
+            mock.Setup(m => m.DeleteFile(It.IsAny<string>())).Returns(true);
+
+            controller.Request = new HttpRequestMessage();
+
+            var actual = controller.DeleteFile(It.IsAny<string>());
+
+            Assert.IsTrue(actual.IsSuccessStatusCode);
+        }
     }
 }

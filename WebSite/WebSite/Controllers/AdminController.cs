@@ -15,11 +15,13 @@ namespace WebSite.Controllers
     [InitializeSimpleMembership]
     public class AdminController : ApiController
     {
+        [HttpGet]
         public IEnumerable<object> GetUsers()
         {
             return GetUsersWhithRole();
         }
 
+        [HttpGet]
         public IEnumerable<string> GetRoles()
         {
             return Roles.GetAllRoles();
@@ -40,13 +42,21 @@ namespace WebSite.Controllers
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 
-        #region TODO
-        public HttpResponseMessage DeleteRole()
+        [HttpGet]
+        public HttpResponseMessage RemoveUserFromRole(string userName, string roleName)
         {
-            return null;
+            try
+            {
+                Roles.RemoveUserFromRole(userName, roleName);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, ex.Message);
+            }
+
+            return Request.CreateResponse(HttpStatusCode.OK);
         }
 
-        #endregion
         [HttpPost]
         public HttpResponseMessage CreateRole(string name)
         {
@@ -74,5 +84,13 @@ namespace WebSite.Controllers
             }
             return users;
         }
+
+        #region TODO
+        public HttpResponseMessage DeleteRole()
+        {
+            return null;
+        }
+
+        #endregion
     }
 }

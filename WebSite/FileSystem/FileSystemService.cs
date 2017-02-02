@@ -43,7 +43,7 @@ namespace FileSystem
 
         }
 
-        public bool CreateFolder(string path = "D:\\", string name = "New Folder")
+        public bool CreateFolder(string path, string name )
         {
             if (string.IsNullOrEmpty(path))
             {

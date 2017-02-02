@@ -52,7 +52,7 @@ namespace FileSystem.Interfaces
         /// <param name="path">The Physical path of the file.</param>
         /// <param name="name">The name of file.</param>
         /// <returns>The method return "true" if the file was created otherwise - "false".</returns>
-        bool CreateFolder(string path = "D:\\", string name = "New Folder");
+        bool CreateFolder(string path, string name);
 
         /// <summary>
         /// Create new folder.

@@ -21,5 +21,11 @@ namespace WebSite.Controllers
         {
             return View();
         }
+
+        [Authorize(Roles="admin, moderator")]
+        public ActionResult TestsIndex()
+        {
+            return View();
+        }
     }
 }

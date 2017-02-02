@@ -38,11 +38,11 @@ namespace WebSite.Controllers
         [HttpPost]
         public HttpResponseMessage CreateFolder(string path, string name)
         {
-            if (!_service.CreateFolder(path,name))
+            if (!_service.CreateFolder(path, name))
             {
                 return Request.CreateResponse(HttpStatusCode.BadRequest);
             }
-            
+
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 
@@ -56,9 +56,9 @@ namespace WebSite.Controllers
                     return Request.CreateResponse(HttpStatusCode.BadRequest);
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                return Request.CreateResponse(HttpStatusCode.BadRequest, ex.Message);
+                return Request.CreateResponse(HttpStatusCode.BadRequest);
             }
 
             return Request.CreateResponse(HttpStatusCode.OK);
