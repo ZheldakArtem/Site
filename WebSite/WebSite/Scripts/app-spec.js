@@ -1,19 +1,23 @@
-﻿describe('Testing a drive-controller', function () {
-    var $scope, ctr;
-    var serviceMock;
+﻿describe('Testing a systemService', function () {
+   // https://docs.angularjs.org/api/ngMock/service/$httpBackend
+    it('should display names of drives', function () {
 
-    beforeEach(function () {
+        var service,backend;
+        var actualStatus;
+        angular.mock.module('systemServiceModule');
 
-        serviceMock = jasmine.createSpyObj('admin-service', ['getDrives, getFolders, getFiles, deleteFolder, deletFile, createFolder, createFile']);
-        module('main');
-
-        inject(function ($rootScope, $controller, $q) {
-            $scope = $rootScope.$new();
+        angular.mock.inject(function (_systemService_,_$httpBackend_) {
+            service = _systemService_;
+            backend = _$httpBackend_;
         });
-    });
-
-    it('should say hallo to the World', function () {
-        expect('World').toEqual('World');
+        service.getDrives().then(function (response) {
+            alert('good');
+        },
+        function (response) {
+            alert('bad');
+        });
+       
+        backend.flush();
+        expect(200).toEqual(200);
     });
 });
-

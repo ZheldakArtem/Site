@@ -20,14 +20,14 @@ namespace WebSite
 
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
                 "~/Scripts/angular/angular.js",
-                "~/Scripts/angular/controllers/drive-controller.js",
-                "~/Scripts/angular/services/system-service.js",
+                "~/Scripts/angular/controllers/driveController.js",
+                "~/Scripts/angular/services/systemService.js",
                  "~/Scripts/config.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/admin").Include(
               "~/Scripts/angular/angular.js",
-              "~/Scripts/angular/controllers/admin-controller.js",
-              "~/Scripts/angular/services/admin-service.js",
+              "~/Scripts/angular/controllers/adminController.js",
+              "~/Scripts/angular/services/adminService.js",
               "~/Scripts/config.js"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're

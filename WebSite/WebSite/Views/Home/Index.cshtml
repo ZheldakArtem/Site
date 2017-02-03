@@ -5,7 +5,7 @@
 @section Angular {
     @Scripts.Render("~/bundles/angular")
 }
-<div ng-app="main" ng-controller="drive-controller">
+<div ng-app="main" ng-controller="driveController">
     <div id="left-sidebar">
         <div class="drive" ng-repeat="drive in drives track by $index">
             <p class="drive-place" ng-click="getSubItems(drive)">

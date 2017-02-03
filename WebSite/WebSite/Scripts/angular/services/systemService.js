@@ -1,6 +1,6 @@
 ﻿(function () {
     angular.module('systemServiceModule', []).
-        factory('system-service', ['$http', function ($http) {
+        factory('systemService', function ($http) {
             return {
                 getDrives: function () {
                     return $http.get(urlSystem);
@@ -24,5 +24,5 @@
                     return $http.post(urlSystem + 'CreateFile?path=' + path + '&name=' + name);
                 }
             }
-        }]);
+        });
 }());

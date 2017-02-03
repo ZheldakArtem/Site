@@ -1,7 +1,7 @@
 ﻿(function () {
     angular.module('adminApp', ['adminServiceModule'])
-    .controller('admin-controller', [
-        '$scope', 'admin-service',
+    .controller('adminController', [
+        '$scope', 'adminService',
      function ($scope, service) {
 
          $scope.editPlace = false;
