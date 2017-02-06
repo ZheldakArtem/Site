@@ -30,6 +30,25 @@ namespace WebSite
               "~/Scripts/angular/services/adminService.js",
               "~/Scripts/config.js"));
 
+  
+    
+    //<link rel="stylesheet" href="~/Content/jasmine-web-site.css">
+    //<script src="~/Scripts/angular/controllers/driveController.js"></script>
+    //<script src="~/Scripts/angular/services/systemService.js"></script>
+    //<script src="~/Scripts/config.js"></script>
+    //<script src="~/Scripts/app-spec.js"></script>
+   
+
+            bundles.Add(new ScriptBundle("~/bundles/tests").Include("~/Scripts/jasmine/jasmine.js",
+                "~/Scripts/jasmine/jasmine-html.js",
+                "~/Scripts/jasmine/jasmine-bootstrap.js",
+                "~/Scripts/angular/angular.js",
+                "~/Scripts/angular/angular-mocks.js",
+                "~/Scripts/angular/controllers/driveController.js",
+                "~/Scripts/angular/services/systemService.js",
+                "~/Scripts/config.js",
+                "~/Scripts/app-spec.js"));
+
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
