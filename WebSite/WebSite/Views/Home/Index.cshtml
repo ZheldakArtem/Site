@@ -14,7 +14,12 @@
             </p>
         </div>
     </div>
+
     <div class="main-content">
+        <div id="navbar-row">
+            <span><a href="/">Home</a></span>
+            <span class="nav-elem" ng-repeat="fullPath in arrFullPath" ng-click="getSubItems(fullPath)">> {{elementNamesFilter(fullPath)}} </span>
+        </div>
         @if (User.IsInRole("admin"))
         {
             <form name="createForm">
@@ -36,7 +41,7 @@
             <tbody>
                 <tr ng-repeat="folder in Folders track by $index">
                     <td ng-click="getSubItems(folder)"><img src="../Images/computer-folder.png" alt={{folder}} /></td>
-                    <td ng-click="getSubItems(folder)">{{ElementsNameFilter(folder)}}</td>
+                    <td ng-click="getSubItems(folder)">{{elementNamesFilter(folder)}}</td>
                     @if (User.IsInRole("admin"))
                     {
                         <td class="delete-btn" ng-click="deleteFolder(folder, $index)">|DELETE|</td>
@@ -44,7 +49,7 @@
                 </tr>
                 <tr ng-repeat="file in Files track by $index">
                     <td><img src="../Images/text-file.png" alt={{file}} /></td>
-                    <td>{{ElementsNameFilter(file)}}</td>
+                    <td>{{elementNamesFilter(file)}}</td>
                     @if (User.IsInRole("admin"))
                     {
                         <td class="delete-btn" ng-click="deleteFile(file, $index)">|DELETE|</td>

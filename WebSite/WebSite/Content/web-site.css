@@ -1,7 +1,13 @@
-﻿ #left-sidebar {
+﻿#left-sidebar {
     float: left;
     width: 10%;
     min-height: 880px;
+}
+
+#navbar-row {
+    min-height:20px;
+    padding-top: 7px;
+    margin-bottom: 20px;
 }
 
 .drive-name {
@@ -45,12 +51,12 @@ tr:hover {
     color: white;
 }
 
-select{
+select {
     height: 36px;
     width: 133px;
     border-radius: 17px;
 }
 
-button{
+button {
     border-radius: 10px;
 }
