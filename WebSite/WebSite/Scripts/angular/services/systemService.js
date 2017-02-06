@@ -1,6 +1,6 @@
 ﻿(function () {
     angular.module('systemServiceModule', []).
-        factory('systemService', function ($http) {
+        service('systemService', function ($http) {
             return {
                 getDrives: function () {
                     return $http.get(urlSystem);

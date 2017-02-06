@@ -1,8 +1,9 @@
-﻿(function () {
-    angular.module('adminApp', ['adminServiceModule'])
+﻿
+(function () {
+    angular.module('adminApp', ['adminServiceModule', 'underscoreService'])
     .controller('adminController', [
-        '$scope', 'adminService',
-     function ($scope, service) {
+        '$scope', 'adminService', '_',
+     function ($scope, service, _) {
 
          $scope.editPlace = false;
          $scope.newRole = false;

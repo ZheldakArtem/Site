@@ -269,6 +269,7 @@
     <Content Include="Images\computer-folder.png" />
     <Content Include="Images\hard-drive.png" />
     <Content Include="Images\text-file.png" />
+    <Content Include="Scripts\underscore\underscore-min.js" />
     <Content Include="Scripts\angular\controllers\adminController.js" />
     <Content Include="Scripts\angular\controllers\driveController.js" />
     <Content Include="Scripts\angular\otherLib\angular-animate.js" />
@@ -314,6 +315,7 @@
     <None Include="Scripts\jquery\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\angular\services\adminService.js" />
     <Content Include="Scripts\angular\services\systemService.js" />
+    <Content Include="Scripts\angular\services\underscoreService.js" />
     <Content Include="Scripts\app-spec.js" />
     <Content Include="Scripts\app.js" />
     <Content Include="Scripts\config.js" />

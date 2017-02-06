@@ -1,8 +1,8 @@
 ﻿
-angular.module('main', ['systemServiceModule'])
+angular.module('main', ['systemServiceModule', 'underscoreService'])
 .controller('driveController', [
-    '$scope', 'systemService',
-function ($scope, service) {
+    '$scope', 'systemService', '_',
+function ($scope, service, _) {
 
     $scope.drives = [];
 
@@ -76,9 +76,23 @@ function ($scope, service) {
         }
     }
 
+
     service.getDrives().then(function (response) {
         response.data.forEach(function (element, index, array) {
             $scope.drives.push(element);
         });
     });
+
+    $scope.driveNamesFilter = function (arrayOfNames) {
+
+        var result = [];
+        for (var i = 0; i < arrayOfNames.length; i++) {
+            result.push(arrayOfNames[i].charAt(0));
+        }
+        return _.first(result);
+    }
+
+    $scope.ElementsNameFilter = function (elemName) {
+        return _.last(elemName.split('\\'));
+    }
 }]);
