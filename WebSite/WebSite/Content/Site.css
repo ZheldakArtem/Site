@@ -352,7 +352,7 @@ label {
 
 input, textarea {
     border: 1px solid #e2e2e2;
-    background: #fff;
+   /*background: #fff;*/
     color: #333;
     font-size: 1.2em;
     margin: 5px 0 6px 0;

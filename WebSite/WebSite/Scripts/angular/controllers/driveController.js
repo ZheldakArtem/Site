@@ -59,7 +59,7 @@ function ($scope, service) {
             return;
         }
         if ($scope.createType === "folder") {
-            service.createFolder($scope.currentPath, name).then(function (result) {
+            service.createFolder({ Name: name, Path: $scope.currentPath }).then(function (result) {
                 var temp = result;
                 $scope.Folders.push($scope.currentPath + name);
             },
@@ -67,7 +67,7 @@ function ($scope, service) {
                 alert('Creation folder error.');
             });
         } else {
-            service.createFile($scope.currentPath, name).then(function () {
+            service.createFile({ Name: name, Path: $scope.currentPath }).then(function () {
                 $scope.Files.push($scope.currentPath + name);
             },
             function () {

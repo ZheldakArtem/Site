@@ -17,11 +17,11 @@
                 deleteFile: function (path) {
                     return $http.delete(urlSystem + 'DeleteFile?path=' + path);
                 },
-                createFolder: function (path, name) {
-                    return $http.post(urlSystem + 'CreateFolder?path=' + path + '&name=' + name);
+                createFolder: function (data) {
+                    return $http.post(urlSystem + 'CreateFolder', data);
                 },
-                createFile: function (path, name) {
-                    return $http.post(urlSystem + 'CreateFile?path=' + path + '&name=' + name);
+                createFile: function (data) {
+                    return $http.post(urlSystem + 'CreateFile', data);
                 }
             }
         });

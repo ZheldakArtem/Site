@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using WebSite.Models;
 
 namespace WebSite.Controllers
 {
@@ -36,9 +37,9 @@ namespace WebSite.Controllers
         }
 
         [HttpPost]
-        public HttpResponseMessage CreateFolder(string path, string name)
+        public HttpResponseMessage CreateFolder([FromBody]SystemInfoModel sysInfo)
         {
-            if (!_service.CreateFolder(path, name))
+            if (!_service.CreateFolder(sysInfo.Path, sysInfo.Name))
             {
                 return Request.CreateResponse(HttpStatusCode.BadRequest);
             }
@@ -47,11 +48,11 @@ namespace WebSite.Controllers
         }
 
         [HttpPost]
-        public HttpResponseMessage CreateFile(string path, string name)
+        public HttpResponseMessage CreateFile([FromBody]SystemInfoModel sysInfo)
         {
             try
             {
-                if (!_service.CreateFile(path, name))
+                if (!_service.CreateFile(sysInfo.Path, sysInfo.Name))
                 {
                     return Request.CreateResponse(HttpStatusCode.BadRequest);
                 }
