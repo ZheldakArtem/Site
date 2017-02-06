@@ -30,15 +30,6 @@ namespace WebSite
               "~/Scripts/angular/services/adminService.js",
               "~/Scripts/config.js"));
 
-  
-    
-    //<link rel="stylesheet" href="~/Content/jasmine-web-site.css">
-    //<script src="~/Scripts/angular/controllers/driveController.js"></script>
-    //<script src="~/Scripts/angular/services/systemService.js"></script>
-    //<script src="~/Scripts/config.js"></script>
-    //<script src="~/Scripts/app-spec.js"></script>
-   
-
             bundles.Add(new ScriptBundle("~/bundles/tests").Include("~/Scripts/jasmine/jasmine.js",
                 "~/Scripts/jasmine/jasmine-html.js",
                 "~/Scripts/jasmine/jasmine-bootstrap.js",
