@@ -8,8 +8,8 @@
         $scope.drives = [];
 
         $scope.getSubItems = function (path, index) {
-            $scope.arrFullPath.push(path);
             $scope.currentPath = path;
+            $scope.arrFullPath.push(path);
 
             if (typeof index !== 'undefined') {
                 deleteNavElem(index);
@@ -67,14 +67,14 @@
             if ($scope.createType === "folder") {
                 service.createFolder({ Name: name, Path: $scope.currentPath }).then(function (result) {
                     var temp = result;
-                    $scope.Folders.push($scope.currentPath + name);
+                    $scope.Folders.push($scope.currentPath + '\\' + name);
                 },
                 function () {
                     alert('Creation folder error.');
                 });
             } else {
                 service.createFile({ Name: name, Path: $scope.currentPath }).then(function () {
-                    $scope.Files.push($scope.currentPath + name);
+                    $scope.Files.push($scope.currentPath + '\\' + name);
                 },
                 function () {
                     alert('Creation file error.');

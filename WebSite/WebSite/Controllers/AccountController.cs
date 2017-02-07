@@ -245,38 +245,7 @@ namespace WebSite.Controllers
             return PartialView("_RemoveExternalLoginsPartial", externalLogins);
         }
 
-        #region TODO
-        public ActionResult CreateRole()
-        {
-            try
-            {
-                Roles.CreateRole("superUser");
-            }
-            catch (Exception)
-            {
-                ModelState.AddModelError("Role", "The role already exist");
-            }
-
-            //TODO
-            return null;
-        }
-
-        public ActionResult AddUserToRole()
-        {
-            //Roles.AddUserToRole(User.Identity.Name, "admin");
-            if (User.IsInRole("admin"))
-            {
-                var c = "weer";
-            }
-            return null;
-        }
-
-        public ActionResult RemoveUserFromRole()
-        {
-            return null;
-        }
-
-        #endregion
+      
 
         #region Helpers
         private ActionResult RedirectToLocal(string returnUrl)
