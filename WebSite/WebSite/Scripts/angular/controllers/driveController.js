@@ -1,15 +1,18 @@
 ﻿(function () {
     angular.module('main', ['systemServiceModule', 'underscoreService'])
-    .controller('driveController', [
+    .controller('systemController', [
         '$scope', 'systemService', '_',
     function ($scope, service, _) {
 
         $scope.arrFullPath = [];
         $scope.drives = [];
 
-        $scope.getSubItems = function (path) {
+        $scope.getSubItems = function (path, index) {
             $scope.arrFullPath.push(path);
             $scope.currentPath = path;
+            if (typeof index !== 'undefined') {
+                deleteNavElem(index);
+            }
             service.getFiles(path).then(function (response) {
                 $scope.Files = [];
                 response.data.forEach(function (element, index, array) {
@@ -97,6 +100,10 @@
             var result = _.last(elemName.split('\\'));
 
             return result === "" ? elemName.charAt(0) : result;
+        }
+
+        var deleteNavElem = function (index) {
+            $scope.arrFullPath.splice(index, $scope.arrFullPath.length - index - 1);
         }
     }]);
 }())

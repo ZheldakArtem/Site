@@ -5,7 +5,7 @@
 @section Angular {
     @Scripts.Render("~/bundles/angular")
 }
-<div ng-app="main" ng-controller="driveController">
+<div ng-app="main" ng-controller="systemController">
     <div id="left-sidebar">
         <div class="drive" ng-repeat="drive in drives track by $index">
             <p class="drive-place" ng-click="getSubItems(drive)">
@@ -17,8 +17,8 @@
 
     <div class="main-content">
         <div id="navbar-row">
-            <span><a href="/">Home</a></span>
-            <span class="nav-elem" ng-repeat="fullPath in arrFullPath" ng-click="getSubItems(fullPath)">> {{elementNamesFilter(fullPath)}} </span>
+            <span><a class="nav-elem" href="/">Home</a></span>
+            <span class="nav-elem" ng-repeat="fullPath in arrFullPath track by $index" ng-click="getSubItems(fullPath,$index)">> {{elementNamesFilter(fullPath)}} </span>
         </div>
         @if (User.IsInRole("admin"))
         {

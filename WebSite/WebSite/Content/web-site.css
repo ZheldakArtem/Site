@@ -10,6 +10,14 @@
     margin-bottom: 20px;
 }
 
+.nav-elem{
+    text-decoration:none;
+}
+
+.nav-elem:hover{
+   background-color: #c7d1d6;
+   cursor:pointer;
+}
 .drive-name {
     font-size: 40px;
 }
