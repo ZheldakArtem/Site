@@ -9,7 +9,8 @@ namespace WebSite
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery/jquery-{version}.js"));
+                        "~/Scripts/jquery/jquery-{version}.js",
+                        "~/Scripts/scroll.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
                         "~/Scripts/jquery/jquery-ui-{version}.js"));

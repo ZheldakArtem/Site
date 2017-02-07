@@ -81,3 +81,15 @@ select {
 button {
     border-radius: 10px;
 }
+
+.to-top-button {
+    cursor: pointer;
+    position: fixed;
+    display: none;
+    width: 40px;
+    height: 40px;
+    bottom: 70px;
+    right: 70px;
+    background-image: url(/Images/Up.png);
+    background-size: cover;
+}

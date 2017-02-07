@@ -270,6 +270,8 @@
     <Content Include="Images\hard-drive.png" />
     <Content Include="Images\home-solid.png" />
     <Content Include="Images\text-file.png" />
+    <Content Include="Images\Up.png" />
+    <Content Include="Scripts\scroll.js" />
     <Content Include="Scripts\underscore\underscore-min.js" />
     <Content Include="Scripts\angular\controllers\adminController.js" />
     <Content Include="Scripts\angular\controllers\driveController.js" />
