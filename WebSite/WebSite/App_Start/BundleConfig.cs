@@ -29,6 +29,8 @@ namespace WebSite
 
             bundles.Add(new ScriptBundle("~/bundles/admin").Include(
               "~/Scripts/angular/angular.js",
+              "~/Scripts/underscore/underscore-min.js",
+              "~/Scripts/angular/services/underscoreService.js",
               "~/Scripts/angular/controllers/adminController.js",
               "~/Scripts/angular/services/adminService.js",
               "~/Scripts/config.js"));
