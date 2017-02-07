@@ -10,6 +10,7 @@
         $scope.getSubItems = function (path, index) {
             $scope.arrFullPath.push(path);
             $scope.currentPath = path;
+
             if (typeof index !== 'undefined') {
                 deleteNavElem(index);
             }
@@ -100,6 +101,11 @@
             var result = _.last(elemName.split('\\'));
 
             return result === "" ? elemName.charAt(0) : result;
+        }
+
+        $scope.resetNavArr = function (nameDrive) {
+            $scope.arrFullPath = [];
+            $scope.getSubItems(nameDrive);
         }
 
         var deleteNavElem = function (index) {

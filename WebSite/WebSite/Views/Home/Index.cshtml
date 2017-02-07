@@ -8,7 +8,7 @@
 <div ng-app="main" ng-controller="systemController">
     <div id="left-sidebar">
         <div class="drive" ng-repeat="drive in drives track by $index">
-            <p class="drive-place" ng-click="getSubItems(drive)">
+            <p class="drive-place" ng-click="resetNavArr(drive)">
                 <img src="../Images/hard-drive.png" alt={{drive}} />
                 <span class="drive-name">{{driveNamesFilter(drive)}}</span>
             </p>
@@ -16,10 +16,10 @@
     </div>
 
     <div class="main-content">
-        <div id="navbar-row">
-            <span><a class="nav-elem" href="/">Home</a></span>
-            <span class="nav-elem" ng-repeat="fullPath in arrFullPath track by $index" ng-click="getSubItems(fullPath,$index)">> {{elementNamesFilter(fullPath)}} </span>
-        </div>
+        <ul id="navbar-row">
+            <li class="nav-elem"><a  href="/"><img src="~/Images/home-solid.png" /></a></li>
+            <li class="nav-elem" ng-repeat="fullPath in arrFullPath track by $index" ng-click="getSubItems(fullPath,$index)">> {{elementNamesFilter(fullPath)}} </li>
+        </ul>
         @if (User.IsInRole("admin"))
         {
             <form name="createForm">
